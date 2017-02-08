@@ -3,17 +3,26 @@
     package="com.students">
 
     <application
+        android:name=".StudentsApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".StudentsActivity">
+        <activity android:name=".StudentsActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize|fontScale|mcc|mnc|touchscreen|keyboard|navigation|screenLayout|uiMode|smallestScreenSize|layoutDirection|locale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".AddStudentActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize|fontScale|mcc|mnc|touchscreen|keyboard|navigation|screenLayout|uiMode|smallestScreenSize|layoutDirection|locale"
+            android:label="@string/add_student"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
         </activity>
     </application>
 

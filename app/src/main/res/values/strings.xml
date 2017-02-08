@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Students</string>
+    <string name="no_students">No Students</string>
+    <string name="btn_save">SAVE</string>
+    <string name="first_name_hint_text">First Name</string>
+    <string name="last_name_hint_text">Last Name</string>
+    <string name="age_hint_text">Age</string>
+    <string name="addr_hint_text">Address</string>
+    <string name="add_student">Add Student</string>
 </resources>
