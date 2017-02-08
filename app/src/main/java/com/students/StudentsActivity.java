@@ -65,7 +65,6 @@ public class StudentsActivity extends AppCompatActivity implements View.OnClickL
                 realm.copyToRealmOrUpdate(stud);
                 realm.commitTransaction();
             }
-            students = realm.where(Student.class).findAll();
         }
     }
 
@@ -87,6 +86,7 @@ public class StudentsActivity extends AppCompatActivity implements View.OnClickL
     }
 
     public void showStudents() {
+        students = realm.where(Student.class).findAll();
         if(students != null && students.size() > 0) {
             noStudentsText.setVisibility(View.GONE);
             studentsAdapter = new StudentsAdapter(students, this, this);
