@@ -42,7 +42,6 @@ public class StudentsActivity extends AppCompatActivity implements View.OnClickL
     @Override
     protected void onResume() {
         super.onResume();
-        //showStudents();
         studentsAdapter.notifyDataSetChanged();
     }
 
@@ -80,7 +79,6 @@ public class StudentsActivity extends AppCompatActivity implements View.OnClickL
     }
 
     public void showErrorMessage(String message) {
-        //noStudentsText.setVisibility(View.VISIBLE);
         Snackbar snackbar = Snackbar.make(findViewById(R.id.rlMain), message, Snackbar.LENGTH_LONG);
         snackbar.show();
     }

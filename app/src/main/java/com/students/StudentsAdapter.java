@@ -2,18 +2,16 @@ package com.students;
 
 
 import android.content.Context;
-import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
+import com.amulyakhare.textdrawable.TextDrawable;
 
 import java.util.List;
-
-import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * Created by sameer.belsare on 8/2/17.
@@ -43,8 +41,11 @@ public class StudentsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         StudentsListViewHolder viewHolder = (StudentsListViewHolder) holder;
         Student student = students.get(position);
-        String imgPath = student.getPhotoUrl();
-        Glide.with(mContext).load(Uri.parse(imgPath)).asBitmap().placeholder(R.mipmap.ic_launcher).into(viewHolder.profileImage);
+        String name = student.getFirstName();
+        TextDrawable drawable = TextDrawable.builder()
+                .buildRound(name.substring(0,1), R.color.colorAccent);
+        //Glide.with(mContext).load(/*Uri.parse(imgPath)*/drawable).asBitmap().placeholder(R.mipmap.ic_launcher).into(viewHolder.profileImage);
+        viewHolder.profileImage.setImageDrawable(drawable);
         viewHolder.firstName.setText(student.getFirstName());
         viewHolder.lastName.setText(student.getLastName());
         viewHolder.itemView.setTag(student.getRollNumber());
@@ -56,13 +57,13 @@ public class StudentsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     }
 
     private static class StudentsListViewHolder extends RecyclerView.ViewHolder {
-        public CircleImageView profileImage;
+        public ImageView profileImage;
         public TextView firstName;
         public TextView lastName;
 
         public StudentsListViewHolder(View itemView) {
             super(itemView);
-            profileImage = (CircleImageView) itemView.findViewById(R.id.profileImage);
+            profileImage = (ImageView) itemView.findViewById(R.id.profileImage);
             firstName = (TextView) itemView.findViewById(R.id.firstName);
             lastName = (TextView) itemView.findViewById(R.id.lastName);
         }

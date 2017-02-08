@@ -9,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import de.hdodenhof.circleimageview.CircleImageView;
 import io.realm.Realm;
 
 /**
@@ -17,7 +16,6 @@ import io.realm.Realm;
  */
 
 public class AddStudentActivity extends AppCompatActivity implements View.OnClickListener {
-    private CircleImageView profilePic;
     private EditText firstName;
     private EditText lastName;
     private EditText age;
@@ -31,7 +29,6 @@ public class AddStudentActivity extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_student);
         progressBar = (ProgressBar) findViewById(R.id.progress);
-        profilePic = (CircleImageView) findViewById(R.id.ivProfilePic);
         firstName = (EditText) findViewById(R.id.firstName);
         lastName = (EditText) findViewById(R.id.lastName);
         age = (EditText) findViewById(R.id.age);
@@ -57,7 +54,7 @@ public class AddStudentActivity extends AppCompatActivity implements View.OnClic
         realm.beginTransaction();
         realm.copyToRealmOrUpdate(student);
         realm.commitTransaction();
-        Toast.makeText(this, "Student Added Successfully", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, getString(R.string.added_success), Toast.LENGTH_SHORT).show();
         finish();
     }
 }
