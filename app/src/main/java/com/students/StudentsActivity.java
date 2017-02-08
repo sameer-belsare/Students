@@ -22,6 +22,7 @@ public class StudentsActivity extends AppCompatActivity implements View.OnClickL
     private List<Student> students;
     private TextView noStudentsText;
     private Realm realm;
+    private StudentsAdapter studentsAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +42,8 @@ public class StudentsActivity extends AppCompatActivity implements View.OnClickL
     @Override
     protected void onResume() {
         super.onResume();
-        showStudents();
+        //showStudents();
+        studentsAdapter.notifyDataSetChanged();
     }
 
     private void loadData() {
@@ -87,7 +89,7 @@ public class StudentsActivity extends AppCompatActivity implements View.OnClickL
     public void showStudents() {
         if(students != null && students.size() > 0) {
             noStudentsText.setVisibility(View.GONE);
-            StudentsAdapter studentsAdapter = new StudentsAdapter(students, this, this);
+            studentsAdapter = new StudentsAdapter(students, this, this);
             listView.setAdapter(studentsAdapter);
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
             listView.setLayoutManager(linearLayoutManager);
