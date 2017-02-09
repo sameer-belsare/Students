@@ -49,6 +49,7 @@ public class StudentsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         viewHolder.firstName.setText(student.getFirstName());
         viewHolder.lastName.setText(student.getLastName());
         viewHolder.itemView.setTag(student.getRollNumber());
+        viewHolder.age.setText("Age: "+student.getAge());
     }
 
     @Override
@@ -60,12 +61,14 @@ public class StudentsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         public ImageView profileImage;
         public TextView firstName;
         public TextView lastName;
+        public TextView age;
 
         public StudentsListViewHolder(View itemView) {
             super(itemView);
             profileImage = (ImageView) itemView.findViewById(R.id.profileImage);
             firstName = (TextView) itemView.findViewById(R.id.firstName);
             lastName = (TextView) itemView.findViewById(R.id.lastName);
+            age = (TextView) itemView.findViewById(R.id.age);
         }
     }
 

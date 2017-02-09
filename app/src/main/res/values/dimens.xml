@@ -12,4 +12,7 @@
     <dimen name="edit_text_margin_top">10dp</dimen>
     <dimen name="profile_take_photo_width">60dp</dimen>
     <dimen name="profile_take_photo_height">60dp</dimen>
+    <dimen name="list_item_height">72dp</dimen>
+    <dimen name="list_item_margin">4dp</dimen>
+    <dimen name="list_item_left_margin">8dp</dimen>
 </resources>
