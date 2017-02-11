@@ -10,12 +10,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
-import java.util.ArrayList;
 import java.util.List;
 
 import io.realm.Realm;
 
+/**
+ * Created by sameer.belsare on 8/2/17.
+ */
 public class StudentsActivity extends AppCompatActivity implements View.OnClickListener {
     private RecyclerView listView;
     private ProgressBar progressBar;
@@ -48,20 +49,11 @@ public class StudentsActivity extends AppCompatActivity implements View.OnClickL
     private void loadData() {
         if(students == null || students.size() <= 0){
             showProgress();
-            List<Student> studentsList = new ArrayList<>();
-            Student student = new Student(1, "aaa", "bbb", 10, "Address", "");
-            studentsList.add(student);
-            student = new Student(1, "ccc", "ddd", 10, "Address", "");
-            studentsList.add(student);
-            student = new Student(2, "eee", "fff", 10, "Address", "");
-            studentsList.add(student);
-            student = new Student(3, "ggg", "hhh", 10, "Address", "");
-            studentsList.add(student);
-            student = new Student(4, "iii", "jjj", 10, "Address", "");
-            studentsList.add(student);
-            for (Student stud : studentsList) {
+            for (int i=0; i<5; i++){
+                Student student = new Student(i+1, (getResources().getStringArray(R.array.firstNameArray))[i], (getResources().getStringArray(R.array.lastNameArray))[i],
+                        (getResources().getIntArray(R.array.ageArray))[i], "Address", "");
                 realm.beginTransaction();
-                realm.copyToRealmOrUpdate(stud);
+                realm.copyToRealmOrUpdate(student);
                 realm.commitTransaction();
             }
         }

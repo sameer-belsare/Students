@@ -8,4 +8,25 @@
     <string name="addr_hint_text">Address</string>
     <string name="add_student">Add Student</string>
     <string name="added_success">\"Student Added Successfully\"</string>
+    <string-array name="firstNameArray">
+        <item>"Ameya"</item>
+        <item>"Sameer"</item>
+        <item>"Mayuresh"</item>
+        <item>"Alok"</item>
+        <item>"Saurabh"</item>
+    </string-array>
+    <string-array name="lastNameArray">
+        <item>"Kulkarni"</item>
+        <item>"Belsare"</item>
+        <item>"Deshpande"</item>
+        <item>"Kulkarni"</item>
+        <item>"Dev"</item>
+    </string-array>
+    <integer-array name="ageArray">
+        <item>10</item>
+        <item>11</item>
+        <item>15</item>
+        <item>12</item>
+        <item>14</item>
+    </integer-array>
 </resources>
